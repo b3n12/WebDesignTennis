@@ -558,6 +558,7 @@ h1.hit-the-floor {
 	display: inline-flex;
 	align-items: center;
 	gap: 10px;
+	margin-top: 56px;
 	background: linear-gradient(135deg, var(--brand-green), var(--brand-green-dark));
 	color: #fff;
 	border: none;
