@@ -132,7 +132,6 @@ h4 {
 .panel {
 	border: 1px solid var(--brand-green);
 	border-radius: 10px !important;
-	overflow: hidden;
 	box-shadow: var(--shadow-card);
 	transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 	background: #fff;
@@ -195,7 +194,7 @@ h4 {
 	background-color: var(--brand-green) !important;
 	padding: 25px;
 	border-bottom: 1px solid transparent;
-	border-radius: 0;
+	border-radius: 9px 9px 0 0;
 }
 .panel-heading h1 {
 	font-size: 22px;
@@ -205,6 +204,7 @@ h4 {
 .panel-footer {
 	background-color: white !important;
 	padding: 20px 15px;
+	border-radius: 0 0 9px 9px;
 }
 .panel-footer h3 {
 	font-size: 42px;
