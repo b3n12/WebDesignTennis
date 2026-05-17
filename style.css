@@ -535,7 +535,7 @@ h1.hit-the-floor {
 		border: 10px solid rgb(128, 54, 28);
 	}
 	.my-face{
-	
+
 		display: block;
 		width: 200px;
 		height: 200px;
@@ -545,6 +545,7 @@ h1.hit-the-floor {
 		background-color: black;
 		border: 1px solid red;
 		border-radius: 50%;
+		transform: scaleX(-1);
 
 	}
 
