@@ -110,7 +110,7 @@
       
 			<li><a href="#"><span class="iconic mail"></span> Contact</a>
 				<ul>
-          <li><a href="chat.html">Chat Online</a></li> 
+          <li><a href="chat.html" onclick="openChat(); return false;">Chat Online</a></li>
           <li><a href="#contact">Contact Us</a></li>
 					<li><a href="#maps">Tennis Courts</a></li>
 				</ul>
@@ -133,14 +133,10 @@
   </div>
       <!-- <a href="chat.html" class="btn btn-primary btn-lg"> Chat Online!</a> -->
 
-      <button style="color:white; background-color:rgb(122, 96, 96)" onclick="myChat()">Chat Online!</button>
-      <script>
-      function myChat() {
-          var myWindow = window.open("chat.html", "myWindows", "width=400,height=700");
-          // myWindow.document.write("<p>This is 'myWindow'</p>");
-          // myWindow.opener.document.write("<p>This is the source window!</p>");
-      }
-      </script>
+      <button type="button" class="btn-chat-hero" onclick="openChat()">
+        <i class="fa fa-comments" aria-hidden="true"></i>
+        Chat Online
+      </button>
 
   </div>
 
@@ -598,6 +594,47 @@
   </a>
   <p><strong>Fun with Tennis @2017</strong></p>
 </footer>
+
+<!-- Floating Chat Widget -->
+<button id="chat-fab" class="chat-fab" type="button" onclick="openChat()" aria-label="Open chat with tennis coach">
+  <span class="chat-fab-pulse" aria-hidden="true"></span>
+  <span class="chat-fab-icon"><i class="fa fa-comments" aria-hidden="true"></i></span>
+  <span class="chat-fab-dot" aria-hidden="true"></span>
+</button>
+
+<!-- Chat Modal -->
+<div id="chat-modal" class="chat-modal" role="dialog" aria-modal="true" aria-label="Chat with tennis coach" aria-hidden="true">
+  <div class="chat-modal-overlay" onclick="closeChat()"></div>
+  <div class="chat-modal-content">
+    <div class="chat-modal-header">
+      <span class="chat-modal-title"><span class="chat-modal-status"></span> Tennis Coach Bot</span>
+      <button type="button" class="chat-modal-close" onclick="closeChat()" aria-label="Close chat">&times;</button>
+    </div>
+    <iframe id="chat-frame" title="Chat with tennis coach" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+  function openChat() {
+    var modal = document.getElementById('chat-modal');
+    var frame = document.getElementById('chat-frame');
+    if (!frame.getAttribute('src')) {
+      frame.setAttribute('src', 'chat.html');
+    }
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('chat-open');
+  }
+  function closeChat() {
+    var modal = document.getElementById('chat-modal');
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('chat-open');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeChat();
+  });
+</script>
 
 <!-- Script for smooth scrolling -->
 <script>
