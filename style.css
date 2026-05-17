@@ -486,14 +486,14 @@ h1.hit-the-floor {
 .hero-quote-author {
 	display: inline-flex;
 	align-items: center;
-	gap: 14px;
-	color: rgba(255, 255, 255, 0.92);
+	gap: 10px;
+	color: rgba(255, 255, 255, 0.6);
 	font-family: Montserrat, sans-serif;
-	font-size: clamp(0.78rem, 1vw, 0.95rem);
-	font-weight: 700;
-	letter-spacing: 3px;
+	font-size: clamp(0.7rem, 0.85vw, 0.8rem);
+	font-weight: 400;
+	letter-spacing: 2px;
 	text-transform: uppercase;
-	text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 	margin: 0;
 }
 
@@ -501,9 +501,9 @@ h1.hit-the-floor {
 .hero-quote-author::after {
 	content: "";
 	display: inline-block;
-	width: 36px;
+	width: 22px;
 	height: 1px;
-	background: var(--accent-gold);
+	background: rgba(240, 196, 25, 0.55);
 }
 
 @keyframes hero-tagline-enter {
