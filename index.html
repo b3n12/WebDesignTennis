@@ -615,24 +615,37 @@
 </div>
 
 <script>
-  function openChat() {
+  window.openChat = function openChat() {
     var modal = document.getElementById('chat-modal');
     var frame = document.getElementById('chat-frame');
-    if (!frame.getAttribute('src')) {
+    if (!modal) return;
+    if (frame && !frame.getAttribute('src')) {
       frame.setAttribute('src', 'chat.html');
     }
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('chat-open');
-  }
-  function closeChat() {
+  };
+  window.closeChat = function closeChat() {
     var modal = document.getElementById('chat-modal');
+    if (!modal) return;
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('chat-open');
-  }
+  };
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeChat();
+    if (e.key === 'Escape') window.closeChat();
+  });
+  // Defensive: also bind click via addEventListener in case inline onclick is blocked
+  document.addEventListener('DOMContentLoaded', function() {
+    var fab = document.getElementById('chat-fab');
+    if (fab) fab.addEventListener('click', window.openChat);
+    var heroBtn = document.querySelector('.btn-chat-hero');
+    if (heroBtn) heroBtn.addEventListener('click', window.openChat);
+    var overlay = document.querySelector('.chat-modal-overlay');
+    if (overlay) overlay.addEventListener('click', window.closeChat);
+    var closeBtn = document.querySelector('.chat-modal-close');
+    if (closeBtn) closeBtn.addEventListener('click', window.closeChat);
   });
 </script>
 
