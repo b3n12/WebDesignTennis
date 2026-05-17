@@ -44,7 +44,7 @@ h4 {
 .thumbnail {
 	padding: 0 0 15px 0;
 	border: none;
-	border-radius: 1;
+	border-radius: 0;
 }
 .thumbnail img {
 	width: 100%;
