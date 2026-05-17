@@ -18,8 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
   
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -28,9 +27,6 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
 <!-- NAVIGATOR START -->
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-  <meta charset="utf-8">
-  <title>Pure CSS3 Menu</title>
   <link href="menu_style.css" media="screen" rel="stylesheet" type="text/css" />
   <script src="prefix-free.js"></script>
 <!-- NAVIGATOR STOP -->
@@ -624,6 +620,10 @@
     }
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');
+    // Force display via inline styles so prefix-free.js can't strip them
+    modal.style.display = 'block';
+    modal.style.visibility = 'visible';
+    modal.style.opacity = '1';
     document.body.classList.add('chat-open');
   };
   window.closeChat = function closeChat() {
@@ -631,6 +631,9 @@
     if (!modal) return;
     modal.classList.remove('open');
     modal.setAttribute('aria-hidden', 'true');
+    modal.style.opacity = '0';
+    modal.style.visibility = 'hidden';
+    setTimeout(function () { modal.style.display = 'none'; }, 250);
     document.body.classList.remove('chat-open');
   };
   document.addEventListener('keydown', function(e) {
