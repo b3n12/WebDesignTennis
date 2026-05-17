@@ -489,10 +489,9 @@ h1.hit-the-floor {
 	gap: 10px;
 	color: rgba(255, 255, 255, 0.6);
 	font-family: Montserrat, sans-serif;
-	font-size: clamp(0.7rem, 0.85vw, 0.8rem);
+	font-size: clamp(0.78rem, 0.95vw, 0.9rem);
 	font-weight: 400;
-	letter-spacing: 2px;
-	text-transform: uppercase;
+	letter-spacing: 0.5px;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 	margin: 0;
 }
